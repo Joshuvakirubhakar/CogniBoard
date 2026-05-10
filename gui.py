@@ -1,4 +1,5 @@
 import streamlit as st
+from sqlalchemy import true
 
 from sidebar import render_employee_profile
 
@@ -92,15 +93,17 @@ class AssistantGUI:
             # AI RESPONSE
             # ---------------------------------------------
 
-            response_generator = (
-                self.get_response(user_input)
-            )
-
             with st.chat_message("ai"):
 
-                response = st.write_stream(
-                    response_generator
-                )
+                with st.status("Fetching Response...", expanded=True):
+
+                    response_generator = (
+                        self.get_response(user_input)
+                    )
+
+                    response = st.write_stream(
+                        response_generator
+                    )
 
             # ---------------------------------------------
             # SAVE HISTORY

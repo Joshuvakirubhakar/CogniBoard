@@ -86,7 +86,7 @@ class Assistant:
 
         retriever = (
             self.vector_store.as_retriever(
-                search_kwargs={"k": 4}
+                search_kwargs={"k": 5}
             )
         )
 

@@ -135,9 +135,9 @@ def run_chatbot():
             text_splitter = (
                 RecursiveCharacterTextSplitter(
 
-                    chunk_size=700,
+                    chunk_size=1500,
 
-                    chunk_overlap=100
+                    chunk_overlap=200
                 )
             )
 
